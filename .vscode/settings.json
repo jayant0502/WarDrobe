@@ -1,0 +1,6 @@
+{
+    "editor.mouseWheelScrollSensitivity": 0.05,
+    "explorer.openEditors.visible": 9,
+    "workbench.list.mouseWheelScrollSensitivity": 0.05,
+    "workbench.list.scrollByPage": false
+}
