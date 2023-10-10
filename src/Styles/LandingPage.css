@@ -1,33 +1,112 @@
-.Front-view{
-    position: relative;
+.Front-view {
+  position: relative;
 }
-.bg-img{
+.bg-img {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/landingPageImages/home-bg-img.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+  z-index: -1;
+  color: var(--txtColor);
+  /* position: relative; */
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-image: linear-gradient(181deg,#0084D6 -50%,#000000 100%); */
+}
+
+.main-overlay{
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/landingPageImages/home-bg-img.jpg);
-    background-attachment: fixed;
-    background-position: center center;
-    z-index: -100;
-    color: var(--txtColor);
-    /* position: relative; */
-    background-color: transparent;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-image: linear-gradient(181deg,#0084D6 -50%,#000000 100%); */
+    background: transparent;
+    background-image: linear-gradient(180deg,#0084D6 -50%,#000000 100%);
+    opacity: .49;
 }
-.txt-container{
+.txt-container {
+    z-index: 10;
+    position: relative;
     padding: 10% 50% 15% 5%;
-    font-size: 2.645rem;
-    font-family: var(--fontFamily);
+  font-size: 2.645rem;
+  font-family: var(--fontFamily);
+  text-align: start;
+}
+.txt-container h1 {
+  font-weight: 600;
+  line-height: 1.2em;
+  margin: 4.55rem 0 2rem 0;
+}
+.txt-container h6 {
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+}
+
+/* Styling for Product Cards */
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #007bff; /* Blue color for price */
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 8rem 5rem 8rem 5rem;
+}
+
+
+/* middle section styles */
+.middle-view{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.middle-bg-img{
+    background-image: url(../assets/landingPageImages/Home-banner-bg.jpg);
+    background-attachment: fixed;
+  background-position: center center;
+  z-index: -1;
+  color: var(--txtColor);
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(100deg,#0084D6 0%,#00000000 100%);
+}
+.mid-txt-container{
+    padding: 5em;
+    position: relative;
     text-align: start;
-}
-.txt-container h1{
-    font-weight:  600;
-    line-height: 1.2em;
-    margin: 4.55rem 0 2rem 0;
-}
-.txt-container h6{
-    font-weight: 400;
-    margin: 0 0 2rem 0;
 
 }

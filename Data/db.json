@@ -1,0 +1,131 @@
+{
+  "user": [
+    {
+      "username": "jayant80",
+      "email": "pawarjayant001@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "email": "pawarjayant800@gmail.com",
+      "password": "12345",
+      "username": "jayant80",
+      "id": 2
+    },
+    {
+      "username": "jayant80",
+      "email": "pawarjayant80@gmail.com",
+      "password": "7787",
+      "id": 3
+    },
+    {
+      "username": "jayant80",
+      "email": "pawarjayant@gmail.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "username": "jayant80",
+      "email": "pawarjayant@gmail.com",
+      "password": "123",
+      "id": 5
+    }
+  ]
+  ,
+  "products":[
+    {
+    "id": 1,
+    "title": "Levi's Black Shorts",
+    "gender":"women",
+    "price": 999,
+    "description": "Amp up your wardrobe with this pair of Levi's® Regular Fit Shorts. Tailored to sartorial perfection from premium quality fabric, it assures a soft and soothing touch against the skin. Join the league of fashion elites flaunting the staple.",
+    "images":[
+      "src/assets/productsImage/women/product-w-shorts.jpeg",
+      "https://i.imgur.com/QEGACen.jpeg"
+
+    ],
+    
+    "category": {
+    "id": 1,
+    "name": "shorts"
+    
+    
+    }
+    },
+    
+    {
+    "id": 2,
+    "title": "Levi's Dark Brown Jeans",
+    "gender":"men",
+    "price": 1498,
+    "description": "A modern slim with room to move, the 511 Slim Fit Stretch Jeans are a classic, you can wear with anything. Complete your casual wardrobe with a splash of style with these 511 slim fit jeans from Levi's. Cut in a cotton fabric with the right amount of stretch, these dark indigo jeans in solid pattern can be paired with most things to create a super cool outfit. 1. These jeans sit low waist with a slim fit from hip to ankle. 2. It is woven, with a hint of stretch, to deliver maximum comfort. 3. Cut close to the body, the 511 Slim is a great alternative to the skinny jeans.",
+    "images": [
+    
+    "src\assets\productsImage\men\product-m-jeans1-600x600.jpg"
+  
+    ],
+    
+    "category": {
+    "id": 2,
+    "name": "jeans"
+   
+    
+    }
+    },
+    {
+    "id": 3,
+    "title": "Sparks Yellow Shoes",
+    "gender":"men",
+    "price": 1999,
+    "description": "Flaunt with these stylish and unique grey neon orange sports shoes as per the latest fashion trend from the house of Sparx. Super comfortable sports shoes with Mesh as upper material and EVA as sole material.",
+    "images": [
+    "src\assets\productsImage\men\sports-shoe3.jpg"
+    
+    ],
+   
+    "category": {
+    "id": 3,
+    "name": "shoes"
+    
+    
+    }
+    },
+    {
+    "id": 4,
+    "title": "H&M Blue Denim Jeans",
+    "gender":"women",
+    "price": 3999,
+    "description": "5-pocket jeans in rigid cotton denim that feels firm at first but then softens and loosens with wear. Wide leg with a regular fit from the waist to the hip and a straight, wide cut from the thigh to the hem. Regular waist with a zip fly and button. Regular length, designed to hit the top of the foot with little or no stacking. A denim statement that goes the distance.",
+    "images": [
+    "src\assets\productsImage\women\product-w-jeans2-600x600.jpg"
+    
+    ],
+   
+    "category": {
+    "id": 2,
+    "name": "jeans"
+   
+    
+    }
+    },
+    {
+    "id": 4,
+    "title": "Gray Denim Jeans",
+    "gender":"women",8
+    "price": 2499,
+    "description": "5-pocket jeans in rigid cotton denim that feels firm at first but then softens and loosens with wear. Wide leg with a regular fit from the waist to the hip and a straight, wide cut from the thigh to the hem. Regular waist with a zip fly and button. Regular length, designed to hit the top of the foot with little or no stacking. A denim statement that goes the distance.",
+    "images": [
+    "src\assets\productsImage\women\product-w-jeans4-600x600.jpg"
+    
+    ],
+   
+    "category": {
+    "id": 2,
+    "name": "jeans"
+   
+    
+    }
+    },
+   
+    ]
+}

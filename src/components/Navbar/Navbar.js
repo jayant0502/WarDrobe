@@ -7,13 +7,10 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 import "../Navbar/Navbar.css";
 import { Link } from "react-router-dom";
-import {
-  Person2Outlined,
-  ShoppingBag,
-} from "@mui/icons-material";
+import { Person2Outlined, ShoppingBag } from "@mui/icons-material";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -55,15 +52,13 @@ export default function PrimarySearchAppBar() {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
-    >
-     
-    </Menu>
+    ></Menu>
   );
 
   // const mobileMenuId = "primary-search-account-menu-mobile";
   // const renderMobileMenu = (
   //   <Menu
-     
+
   //     id={mobileMenuId}
   //     keepMounted
   //     transformOrigin={{
@@ -72,15 +67,18 @@ export default function PrimarySearchAppBar() {
   //     }}
 
   //   >
-      {/* <MenuItem>
+  {
+    /* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem> */}
-      {/* <MenuItem>
+      </MenuItem> */
+  }
+  {
+    /* <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -91,8 +89,10 @@ export default function PrimarySearchAppBar() {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem> */}
-      {/* <MenuItem onClick={handleProfileMenuOpen}>
+      </MenuItem> */
+  }
+  {
+    /* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -103,39 +103,54 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem> */}
+      </MenuItem> */
+  }
   //   </Menu>
   // );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar  className="nav">
+      <AppBar className="nav">
         <Toolbar>
-          
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "block", sm: "block" } }}
           >
-          <Link to="/"><img src={logo} className="logo"></img></Link>
-           
+            <Link to="/">
+              <img src={logo} className="logo"></img>
+            </Link>
           </Typography>
 
-          <Box sx={{ flexGrow: 1 }} >
+          <Box sx={{ flexGrow: 1 }}>
             <ul className="nav-list">
-              <li><Link to="/Everything">Everything</Link></li>
-              <li><Link to="/Women">Women</Link></li>
-              <li><Link to="/Men">Men</Link></li>
-              <li><Link to="/Accessories">Accessories</Link></li>
-            </ul>
-
-            
-          </Box>
-          <Box sx={{ display: {  md: "flex", display:"flex" ,justifyContent:"space-around" } }}>
-          <ul className="nav-list-2">
               <li>
-             <Link to="/About">About</Link>
+                <Link to="/Everything">Everything</Link>
+              </li>
+              <li>
+                <Link to="/Women">Women</Link>
+              </li>
+              <li>
+                <Link to="/Men">Men</Link>
+              </li>
+              <li>
+                <Link to="/Accessories">Accessories</Link>
+              </li>
+            </ul>
+          </Box>
+          <Box
+            sx={{
+              display: {
+                md: "flex",
+                display: "flex",
+                justifyContent: "space-around",
+              },
+            }}
+          >
+            <ul className="nav-list-2">
+              <li>
+                <Link to="/About">About</Link>
               </li>
               <li>
                 <Link to="/Contact_Us">Contact Us</Link>
@@ -146,52 +161,51 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-            <Typography variant="h6" component={'bdi'}>
-             
-              <span>
-                $
-              </span>
-              0.00
-            
-             </Typography>
+              <Typography variant="h6" component={"bdi"}>
+                <span>$</span>
+                0.00
+              </Typography>
             </IconButton>
+            <Link to="Cart">
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge badgeContent={1} color="error">
+                  <ShoppingBag />
+                </Badge>
+              </IconButton>
+            </Link>
+            <Link to="/Profile">
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                // aria-controls={menuId}
+                // aria-haspopup="true"
+                // onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <Person2Outlined>Profile</Person2Outlined>
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
+              edge="start"
               color="inherit"
+              aria-label="open drawer"
+              sx={{ ml: 2, display: { xs: "flex", sm: "flex", md: "none" } }}
             >
-              <Badge badgeContent={1} color="error">
-                <ShoppingBag />
-              </Badge>
+              <MenuIcon />
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              // aria-controls={menuId}
-              // aria-haspopup="true"
-              // onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-             <Person2Outlined>Profile</Person2Outlined>
-            </IconButton>
-            <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ ml: 2 , display: { xs: "flex", sm: "flex", md:"none" }}}          
-            
-          >
-            <MenuIcon />
-          </IconButton>
           </Box>
           {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
           </Box> */}
         </Toolbar>
       </AppBar>
       {/* {renderMobileMenu} */}
-      {renderMenu}  
+      {renderMenu}
     </Box>
   );
 }
