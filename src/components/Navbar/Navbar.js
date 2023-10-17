@@ -12,7 +12,7 @@ import "../Navbar/Navbar.css";
 import { Link } from "react-router-dom";
 import { Person2Outlined, ShoppingBag } from "@mui/icons-material";
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -109,8 +109,8 @@ export default function PrimarySearchAppBar() {
   // );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar className="nav">
+    <Box className="header" sx={{ flexGrow: 1 }} >
+      <AppBar className={`${secondaryNav ? "second-nav":"primary-nav"}`} id="nav" >
         <Toolbar>
           <Typography
             variant="h6"
@@ -124,18 +124,18 @@ export default function PrimarySearchAppBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1 }}>
-            <ul className="nav-list">
+            <ul className={`${secondaryNav ? "second-nav-list":"primary-nav-list"}`}>
               <li>
-                <Link to="/Everything">Everything</Link>
+                <Link to="/Categories" onClick={()=> setcategories("")}>Everything</Link>
               </li>
               <li>
-                <Link to="/Women">Women</Link>
+                <Link to="/Categories" onClick={()=> setcategories("women")}>Women</Link>
               </li>
               <li>
-                <Link to="/Men">Men</Link>
+                <Link to="/Categories" onClick={()=> setcategories("men")}>Men</Link>
               </li>
               <li>
-                <Link to="/Accessories">Accessories</Link>
+                <Link to="/Categories" onClick={()=>setcategories("accessories")}>Accessories</Link>
               </li>
             </ul>
           </Box>
@@ -148,7 +148,7 @@ export default function PrimarySearchAppBar() {
               },
             }}
           >
-            <ul className="nav-list-2">
+            <ul className={`${secondaryNav ? "second-nav-list2":"primary-nav-list2"}`}>
               <li>
                 <Link to="/About">About</Link>
               </li>
@@ -166,7 +166,7 @@ export default function PrimarySearchAppBar() {
                 0.00
               </Typography>
             </IconButton>
-            <Link to="Cart">
+            <Link to="/Cart">
               <IconButton
                 size="large"
                 aria-label="show 17 new notifications"

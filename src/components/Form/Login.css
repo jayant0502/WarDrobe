@@ -73,6 +73,10 @@
     background: none;
 
   }
+  .form{
+    display: flex;
+    flex-direction: column;
+  }
   
   @media screen and (max-width:760px) {
     .img-container{

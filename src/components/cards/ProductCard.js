@@ -5,41 +5,56 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { Rating } from "@mui/material";
-// import { BtnOutlined } from "../Button";
+import axios from "axios";
+import "../cards/ProductCard.css"
 
 export default function BasicCard({ products }) {
-  console.log(products);
+  // console.log(products);
+
+  function addToCart(item){
+    console.log(item)
+    axios
+    .post('http://localhost:8000/Cart',item)
+    .then((response)=>{
+      console.log(response.data)
+    }  )
+    .catch((errors)=>{
+      console.error("Error", errors );
+    })
+    
+  }
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "1rem",
-      }}
+       className="card-container"
     >
       {products &&
         products.map((item, index) => {
           return (
             <Card
-              sx={{ bgcolor: "initial", minWidth: "250px", maxWidth: "300px" }}
+             
               key={index}
               variant="plain"
+              className="card"
             >
-              <AspectRatio minHeight="100%" minWidth="100%">
-                <img
-                  src={item.images[0]}
+              <AspectRatio minHeight="100%" minWidth="100%" className="img-wrapper">
+            
+                <img id="img" src={item.images}
+                  key={index}
                   loading="lazy"
-                  alt=""
-                  sx={{ objectFit: "contain" }}
+                  alt="Products"
+                  
+                
                 />
+              
+           
               </AspectRatio>
 
-              <CardContent sx={{ textAlign: "start" }}>
-                <Typography level="title-lg">{item.title}</Typography>
-                <Typography level="body-xs">Total price: {item.id}</Typography>
-                <Typography fontSize="lg" fontWeight="lg">
+              <CardContent className="card-content">
+                <Typography  className="brand-title" >{item.title}</Typography>
+                <Typography  className="category" >{item.category.name}</Typography>
+        
+                <Typography  className="price">
                   {`₹ ${item.price}`}
                 </Typography>
               </CardContent>
@@ -51,6 +66,7 @@ export default function BasicCard({ products }) {
                   color="primary"
                   aria-label="Buy Now"
                   sx={{ alignSelf: "start", fontWeight: 600 }}
+                  onClick={()=>addToCart(item)}
                 >
                   Buy Now
                 </Button>

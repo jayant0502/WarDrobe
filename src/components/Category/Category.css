@@ -1,0 +1,11 @@
+.categories{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: start; */
+   
+}
+.categories a{
+    color: black;
+    text-align: start;
+}

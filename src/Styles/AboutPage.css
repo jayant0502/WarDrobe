@@ -1,0 +1,60 @@
+.about-bg-img{
+    background-image: url("../assets//AboutPageImages/banner-04.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-overlay{
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    background: transparent;
+  background-image: linear-gradient(180deg, #0084d6 -50%, #000000 100%);
+  opacity: 0.49;
+}
+.title h1{
+    margin: 0;
+    color: #fff;
+    font-family: var(--fontFamily);
+    font-weight: 600;
+    position: relative;
+    font-size: 3rem;
+    
+}
+.intro-section{
+    display: flex;
+    background-color:#f5f7f9 ;
+    margin: 5rem;
+}
+.intro-txt-container{
+     width: 50%;
+     font-family: var(--fontFamily);
+     text-align: start;
+     padding: 2rem;
+     word-break: break-all;
+     word-wrap: break-word;
+
+}
+.intro-divider{
+    display: inline-flex;
+    border-top: 5px solid #0084d6;
+    width: 15%;
+   
+}
+.intro-txt-container h1{
+    
+     font-size: 3rem;
+     font-weight: 400;
+}
+.intro-img{
+    width: 50%;
+}
+.intro-img img{
+    width: 100%;
+    height: 100%;
+}

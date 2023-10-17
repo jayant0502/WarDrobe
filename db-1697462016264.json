@@ -5,27 +5,27 @@
       "email": "pawarjayant80@gmail.com",
       "password": "123",
       "id": 1
-    },
+    }
+   
+  ],
+  "Cart": [
     {
-      "username": "jayant",
-      "email": "pawar@gmail.com",
-      "password": "123",
-      "id": 2
-    },
-    {
-      "username": "jay",
-      "email": "jay@gmail.com",
-      "password": "123",
-      "id": 3
-    },
-    {
-      "username": "mona",
-      "email": "monpatidar001@gmail.com",
-      "password": "123",
-      "id": 4
+      "pid": 1,
+      "title": "Levi's Black Shorts",
+      "gender": "women",
+      "price": 999,
+      "description": "Amp up your wardrobe with this pair of Levi's® Regular Fit Shorts. Tailored to sartorial perfection from premium quality fabric, it assures a soft and soothing touch against the skin. Join the league of fashion elites flaunting the staple.",
+      "images": [
+        "https://i.imgur.com/QEGACen.jpeg",
+        "src/assets/productsImage/women/product-w-shorts.jpeg"
+      ],
+      "category": {
+        "id": 1,
+        "name": "shorts"
+      },
+      "id": 1
     }
   ],
-  "Cart": [],
   "products": [
     {
       "pid": 1,
@@ -59,7 +59,7 @@
     {
       "pid": 3,
       "title": "Sparks Yellow Shoes",
-      "gender": "menf",
+      "gender": "men",
       "price": 1999,
       "description": "Flaunt with these stylish and unique grey neon orange sports shoes as per the latest fashion trend from the house of Sparx. Super comfortable sports shoes with Mesh as upper material and EVA as sole material.",
       "images": [

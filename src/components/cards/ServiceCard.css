@@ -1,0 +1,25 @@
+.card-widget-wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.icon{
+    width: 30%;
+}
+.icon img{
+    width: 100%;
+    height: 100%;
+}
+.text-wrapper{
+    font-family: var(--fontFamily);
+}
+.text-wrapper h3{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.text-wrapper p{
+    font-size: 0.8rem;
+    font-weight: 500;
+}

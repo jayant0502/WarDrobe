@@ -1,0 +1,20 @@
+.search-field{
+    display: flex;
+    justify-content: space-between;
+
+}
+.input ,.search-btn {
+    border: 1px solid #e2e2e2;
+    border-radius: 0;
+    padding: 0.6rem;
+    margin-right: 0.5em;
+    background-color: #fff;
+    outline: none;
+}
+.search-btn{
+    background-color: #0084d6;
+    color: #fff;
+    border: none;
+    font-size: 1em;
+    
+}

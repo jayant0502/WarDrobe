@@ -1,14 +1,13 @@
 import React from 'react'
-// import Login from '../components/Form/Login'
 import Navbar from "../components/Navbar/Navbar"
+import Footer from '../components/Footer/Footer'
 
 
 const ContactUs = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      {/* <Login></Login> */}
-      {/* <Register></Register> */}
+        <Navbar secondaryNav={true}/>
+       <Footer></Footer>
     </div>
   )
 }

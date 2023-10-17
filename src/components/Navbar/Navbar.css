@@ -1,35 +1,77 @@
-.nav {
-  max-height: 120px !important;
+.primary-nav {
+  max-height: 100px !important;
   min-height: 100px !important;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
-  position: relative;
+  position: absolute !important;
+  /* position: relative; */
   box-shadow: none !important;
   background-color: rgba(0, 0, 0, 0.07) !important;
 }
-.nav-list,
-.nav-list-2 {
+.second-nav{
+  box-shadow: none !important;
+ 
+  position: relative !important;
+  background-color: white !important;
+  color: black !important;
+  max-height: 100px !important;
+  min-height: 100px !important;
+  display: flex;
+  justify-content: center;
+}
+.primary-nav-list,
+.primary-nav-list2, .second-nav-list ,
+.second-nav-list2{
   list-style: none;
   display: flex;
   align-items: center;
 }
-.nav-list li,
-.nav-list-2 li {
+.primary-nav-list li,
+.primary-nav-list2 li ,.second-nav-list li,
+.second-nav-list2 li{
   margin-right: 2%;
   padding: 0 1rem 0 1rem;
   white-space: nowrap;
-  color: white;
+  
 }
+
+
 .logo {
   width: 150px;
   height: auto;
   mix-blend-mode: difference;
 }
-a:-webkit-any-link {
+a:-webkit-any-link ,.second-nav-list a:-webkit-any-link{
   text-decoration: none;
   color: white;
   font-family: var(--fontFamily);
-  font-size: 1.099rem;
+  font-size: 0.899rem;
   text-transform: uppercase;
-  font-weight: 520;
+  font-weight: 500;
+ 
 }
+
+.second-nav-list a:-webkit-any-link,
+.second-nav-list2 a:-webkit-any-link{
+  color: black ;
+}
+
+.header{
+  display: flex;
+  position: relative;
+}
+.css-hyum1k-MuiToolbar-root{
+  display: -webkit-flex;
+  
+}
+/* @media screen and (max-width:960px) 
+{
+
+  .css-hyum1k-MuiToolbar-root{
+    display: flex;
+    flex-direction: column;
+  }
+  .header{
+    flex-direction: column;
+  }
+} */

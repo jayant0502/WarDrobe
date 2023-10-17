@@ -1,0 +1,8 @@
+.widget-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#f5f7f9 ;
+    padding: 8rem 4rem 8rem 4rem;
+    
+}

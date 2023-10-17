@@ -39,6 +39,16 @@ footer{
     width: 20em;
     height: auto;
 }
+hr{
+    margin: 0;
+}
+.footer-header{
+    min-height: 100px;
+    border-style: solid;
+    border-width: 0px;
+    border-top-width: 2px;
+    border-top-color: #dddd
+}
 
 @media screen and (max-width:760px) {
     .footer-items{

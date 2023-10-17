@@ -16,18 +16,18 @@
   /* background-image: linear-gradient(181deg,#0084D6 -50%,#000000 100%); */
 }
 
-.main-overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    background-image: linear-gradient(180deg,#0084D6 -50%,#000000 100%);
-    opacity: .49;
+.main-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  background-image: linear-gradient(180deg, #0084d6 -50%, #000000 100%);
+  opacity: 0.49;
 }
 .txt-container {
-    z-index: 10;
-    position: relative;
-    padding: 10% 50% 15% 5%;
+  z-index: 10;
+  position: relative;
+  padding: 10% 50% 15% 5%;
   font-size: 2.645rem;
   font-family: var(--fontFamily);
   text-align: start;
@@ -81,32 +81,31 @@
   margin: 8rem 5rem 8rem 5rem;
 }
 
-
 /* middle section styles */
-.middle-view{
-    width: 100%;
-    height: 100%;
-    position: relative;
+.middle-view {
+  width: 98%;
+  height: 100%;
+  margin: auto;
+  position: relative;
 }
-.middle-bg-img{
-    background-image: url(../assets/landingPageImages/Home-banner-bg.jpg);
-    background-attachment: fixed;
+.middle-bg-img {
+  background-image: url(../assets/landingPageImages/Home-banner-bg.jpg);
+  background-attachment: fixed;
   background-position: center center;
   z-index: -1;
   color: var(--txtColor);
-  
+
   background-size: cover;
   background-repeat: no-repeat;
 }
-.overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(100deg,#0084D6 0%,#00000000 100%);
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(100deg, #0084d6 0%, #00000000 100%);
 }
-.mid-txt-container{
-    padding: 5em;
-    position: relative;
-    text-align: start;
-
+.mid-txt-container {
+  padding: 5em;
+  position: relative;
+  text-align: start;
 }

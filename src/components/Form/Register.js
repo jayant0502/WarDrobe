@@ -1,154 +1,158 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import "./Login.css";
-import img from "../../assets/female_shopping_from_phone.jpg";
-import img2 from "../../assets/Big_phone_with_cart.jpg";
+import img from "../../assets/formImages/female_shopping_from_phone.jpg";
+import img2 from "../../assets/formImages/Big_phone_with_cart.jpg";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
-
 const Register = () => {
   const [isSignUp, setIsSignUp] = useState(true);
-  // const [isSignIn, setIsSignIn] = useState(false);
-  const [data, setData] = useState([]);
+
   const navigate = useNavigate();
 
   const signUpInitialValues = {
     username: "",
     email: "",
-    password: ""
+    password: "",
   };
+
   const signInInitialValues = {
     email: "",
     password: "",
   };
+
   const toggleForm = () => {
     setIsSignUp((prev) => !prev);
   };
-  
 
   const [signUpValues, setSignUpValues] = useState(signUpInitialValues);
   const [signInValues, setSignInValues] = useState(signInInitialValues);
 
   const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [SignInformErrors, setSignInFormErrors] = useState({});
 
-  const registerUser = (formData) => {
-    if (isSignUp) {
-      if (formData.username && formData.email && formData.password) {
-        // Registration logic
-        axios
-          .post(`http://localhost:3000/user`, formData)
-          .then((response) => {
-            console.log("Success", response);
-            alert("Registered");
-          })
-          .catch((errors) => {
-            console.log("error", errors);
-            alert("Error during registration");
-          });
-      } else {
-        alert("Fill all the data...");
-      }
-    } else {
-      // Handle the code for sign-in here
-      console.log("This is a sign-in form");
-    }
-  };
-  
-  useEffect(() => {
-    // if(formData.email && formData.password)
-    
-    axios.get(`http://localhost:3000/user`).then((response) => {
-      setData(response.data);
-    });
-  
-  // else{
-  //   alert("fill the data first")
-  // }
-  }, []);
- 
-  const validateUser = (inputData) => {
-    let isValid = false;
-    data &&
-      data.map((val) => {
-        // console.log(val.email);
-        // console.log(inputData.email);
-        if (
-          val.email === inputData.email &&
-          val.password === inputData.password
-        ) {
-          isValid = true;
-          // console.log("sahi hai");
-          navigate("/");
-        } else {
-          alert("wrong credentials")
-        }
-      });
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    isSignUp
-      ? setSignUpValues({ ...signUpValues, [name]: value })
-      : setSignInValues({ ...signInValues, [name]: value });
-    // console.log(signUpValues);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(isSignUp ? signUpValues : signInValues));
-    setIsSubmit(true);
-    if(isSubmit){
-    const formData = signUpValues;
-    const inputData = signInValues;
-    isSignUp ? registerUser(formData) : validateUser(inputData);
-    }
-    else{
-      alert("Please Fill All Data")
+    const errors = validate(signUpValues);
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      registerUser(signUpValues);
+    } else {
+      alert("Please fill in all required fields.");
     }
   };
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      alert("form submitted Successfully");
-      setTimeout(()=>{
-        window.location.reload()},1500)
-
-    }
-  }, [formErrors]);
 
   const validate = (values) => {
     const errors = {};
-    if (isSignUp) {
-      if (!values.username.trim()) {
-        errors.username = "Username is required";
-      }
-      if (!values.email.trim()) {
-        errors.email = "email is required";
-      }
-      if (!values.password.trim()) {
-        errors.password = "password is required";
-      }
-     
-    } else if(isSignUp != true) {
-      if (!values.email.trim()) {
-        errors.email = "Email is required";
-      }
-      if (!values.password.trim()) {
-        errors.password = "Password is required";
-      }
+    if (!values.username.trim()) {
+      errors.username = "Username is required";
+    }
+    if (!values.email.trim()) {
+      errors.email = "Email is required";
+    }
+    if (!values.password.trim()) {
+      errors.password = "Password is required";
     }
     return errors;
+  };
+
+  const handleSignInSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateSignIn(signInValues);
+    setSignInFormErrors(errors);
+   
+    if (Object.keys(errors).length === 0) {
+      loginUser(signInValues);
+    } else {
+      alert("Fill all the required fields")
+    }
+  };
+
+
+  const validateSignIn = (values) => {
+    const SignInErrors = {};
+
+    if (!values.email.trim()) {
+      SignInErrors.email = "Email is required";
+    }
+    if (!values.password.trim()) {
+      SignInErrors.password = "Password is required";
+    }
+    return SignInErrors;
+  };
+
+  const registerUser = (formData) => {
+    axios
+      .post(`http://localhost:8000/user`, formData)
+      .then((response) => {
+        console.log("Success", response);
+        alert("Registered");
+        if (response.status === 200) {
+          // Navigate to the home page if registered
+          navigate("/");
+        } else {
+          alert("Registration failed");
+        }
+      })
+      .catch((errors) => {
+        console.log("error", errors);
+        alert("Error during registration");
+      });
+  };
+   const [matchingUser,setMatchingUser]=useState(false);
+  const loginUser = (formData) => {
+
+    axios
+      .get("http://localhost:8000/user")
+      .then((response) => {
+        const users = response.data;
+        console.log(response)
+        
+        users.find(
+          (user) =>{
+                    
+           if(user.email === formData.email && user.password === formData.password){
+             sessionStorage.setItem("id",user.id)
+             sessionStorage.setItem("userName",user.username)
+            sessionStorage.setItem("email",user.email)
+            setMatchingUser(true)
+           }
+          }
+        );
+            console.log(matchingUser)
+        if (matchingUser) {
+          navigate("/");
+         
+        } 
+        else {         
+          alert("Invalid email or password. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error while fetching user data:", error);
+        alert("Error during sign-in");
+      });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (isSignUp) {
+      setSignUpValues({ ...signUpValues, [name]: value });
+    } else {
+      setSignInValues({ ...signInValues, [name]: value });
+    }
   };
 
   return (
     <div className="wrapper">
       <div className={`form-container ${isSignUp ? "sign-up" : "sign-in"}`}>
-        <form onSubmit={handleSubmit} method="post" className="login-form">
+        <div className="login-form">
           <h1>WELCOME!</h1>
           <h5>TO YOUR OWN WARDROBE</h5>
           {isSignUp ? (
-            <>
+            <form onSubmit={handleSignUpSubmit} method="post" className="form">
               <h1>Sign Up</h1>
               <TextField
                 id="User Name"
@@ -158,9 +162,7 @@ const Register = () => {
                 type="text"
                 value={signUpValues.username}
                 onChange={handleChange}
-                onfo
               />
-
               {formErrors.username && <p>{formErrors.username}</p>}
               <TextField
                 id="email"
@@ -182,10 +184,12 @@ const Register = () => {
                 onChange={handleChange}
               />
               {formErrors.password && <p>{formErrors.password}</p>}
-             
-            </>
+              <Button type="submit" id="form-btn">
+                Sign Up
+              </Button>
+            </form>
           ) : (
-            <>
+            <form onSubmit={handleSignInSubmit} method="post" className="form">
               <h1>Sign In</h1>
               <TextField
                 id="email"
@@ -196,8 +200,7 @@ const Register = () => {
                 onChange={handleChange}
                 name="email"
               />
-
-              {formErrors.email && <p className="para">{formErrors.email}</p>}
+              {SignInformErrors.email && <p>{SignInformErrors.email}</p>}
               <TextField
                 id="password"
                 label="Password"
@@ -207,23 +210,20 @@ const Register = () => {
                 onChange={handleChange}
                 name="password"
               />
-              {formErrors.password && (
-                <p className="para">{formErrors.password}</p>
-              )}
-             
-            </>
+              {SignInformErrors.password && <p>{SignInformErrors.password}</p>}
+              <Button type="submit" id="form-btn">
+                Sign In
+              </Button>
+              {/* <p id="error"></p> */}
+            </form>
           )}
-
-          <Button type="submit" id="form-btn">
-            {isSignUp ? "Sign Up" : "Sign In"}
-          </Button>
 
           <a className="toggle-btn" onClick={toggleForm}>
             {isSignUp
               ? "Already have an account? Sign In"
               : "Don't have an account? Sign Up"}
           </a>
-        </form>
+        </div>
       </div>
       <div className="img-container">
         {isSignUp ? (

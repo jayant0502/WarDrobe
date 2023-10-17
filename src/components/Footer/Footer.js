@@ -26,7 +26,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-header">
-        <h2>
+      {/* <hr /> */}
+        <h2 className="footer-top">
           SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.
         </h2>
         <hr></hr>

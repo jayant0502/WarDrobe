@@ -15,16 +15,23 @@ export default function GradientCover({ title, description, btnTitle, image }) {
         border: "none",
         display: "flex",
         textAlign: "start",
+        position: "relative",
       }}
     >
-      <CardCover sx={{ opacity: "0.8", backgroundColor: "#00000" }}>
-        <img src={image} loading="lazy" alt="" />
+      <CardCover >
+        <img src={image} loading="lazy" alt="" style={{ 
+       objectPosition:"right", objectFit:"cover", width:"100%", height: "100%"}}/>
       </CardCover>
       <CardCover
-        sx={{
-          background:
-            "linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-        }}
+        sx={
+          {
+            backgroundColor:"#000000",
+            opacity:".5",
+            position:"absolute"
+            // background:
+            //   "linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+          }
+        }
       />
       <CardContent
         sx={{ justifyContent: "flex-end", padding: "1.1rem 0 1.1rem 0" }}
