@@ -23,9 +23,53 @@
       "email": "monpatidar001@gmail.com",
       "password": "123",
       "id": 4
+    },
+    {
+      "username": "ram",
+      "email": "ram@gmail.com",
+      "password": "123",
+      "id": 5
     }
   ],
-  "Cart": [],
+  "Cart": [
+    {
+      "pid": 5,
+      "title": "Gray Denim Jeans",
+      "gender": "women",
+      "price": 2499,
+      "description": "5-pocket jeans in rigid cotton denim that feels firm at first but then softens and loosens with wear. Wide leg with a regular fit from the waist to the hip and a straight, wide cut from the thigh to the hem. Regular waist with a zip fly and button. Regular length, designed to hit the top of the foot with little or no stacking. A denim statement that goes the distance.",
+      "images": [
+        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-w-jeans4-600x600.jpg"
+      ],
+      "category": {
+        "id": 2,
+        "name": "jeans",
+        "type": "women"
+      },
+      "userId": "3",
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "pid": 1,
+      "title": "Levi's Black Shorts",
+      "gender": "women",
+      "price": 999,
+      "description": "Amp up your wardrobe with this pair of Levi's® Regular Fit Shorts. Tailored to sartorial perfection from premium quality fabric, it assures a soft and soothing touch against the skin. Join the league of fashion elites flaunting the staple.",
+      "images": [
+        "https://i.imgur.com/QEGACen.jpeg",
+        "src/assets/productsImage/women/product-w-shorts.jpeg"
+      ],
+      "category": {
+        "id": 1,
+        "name": "shorts",
+        "type": "women"
+      },
+      "userId": "3",
+      "quantity": 4,
+      "id": 3
+    }
+  ],
   "products": [
     {
       "pid": 1,
@@ -39,7 +83,8 @@
       ],
       "category": {
         "id": 1,
-        "name": "shorts"
+        "name": "shorts",
+        "type": "women"
       }
     },
     {
@@ -53,13 +98,14 @@
       ],
       "category": {
         "id": 2,
-        "name": "jeans"
+        "name": "jeans",
+        "type": "men"
       }
     },
     {
       "pid": 3,
       "title": "Sparks Yellow Shoes",
-      "gender": "menf",
+      "gender": "men",
       "price": 1999,
       "description": "Flaunt with these stylish and unique grey neon orange sports shoes as per the latest fashion trend from the house of Sparx. Super comfortable sports shoes with Mesh as upper material and EVA as sole material.",
       "images": [
@@ -67,7 +113,8 @@
       ],
       "category": {
         "id": 3,
-        "name": "shoes"
+        "name": "shoes",
+        "type": "men"
       }
     },
     {
@@ -81,7 +128,8 @@
       ],
       "category": {
         "id": 2,
-        "name": "jeans"
+        "name": "jeans",
+        "type": "women"
       }
     },
     {
@@ -95,7 +143,8 @@
       ],
       "category": {
         "id": 2,
-        "name": "jeans"
+        "name": "jeans",
+        "type": "women"
       }
     },
     {
@@ -109,7 +158,8 @@
       ],
       "category": {
         "id": 1,
-        "name": "shorts"
+        "name": "shorts",
+        "type": "women"
       }
     },
     {
@@ -123,7 +173,8 @@
       ],
       "category": {
         "id": 4,
-        "name": "accessories"
+        "name": "Bracelet",
+        "type": "accessories"
       }
     },
     {
@@ -137,7 +188,8 @@
       ],
       "category": {
         "id": 4,
-        "name": "accessories"
+        "name": "Bracelet",
+        "type": "accessories"
       }
     },
     {
@@ -151,7 +203,8 @@
       ],
       "category": {
         "id": 4,
-        "name": "accessories"
+        "name": "Purse",
+        "type": "accessories"
       }
     },
     {
@@ -165,7 +218,8 @@
       ],
       "category": {
         "id": 4,
-        "name": "accessories"
+        "name": "Purse",
+        "type": "accessories"
       }
     },
     {
@@ -179,7 +233,8 @@
       ],
       "category": {
         "id": 4,
-        "name": "accessories"
+        "name": "Cap",
+        "type": "accessories"
       }
     },
     {
@@ -193,7 +248,8 @@
       ],
       "category": {
         "id": 5,
-        "name": "Hoodies"
+        "name": "Hoodies",
+        "type": "men"
       }
     },
     {
@@ -207,7 +263,8 @@
       ],
       "category": {
         "id": 5,
-        "name": "Hoodies"
+        "name": "Hoodies",
+        "type": "men"
       }
     },
     {
@@ -221,7 +278,8 @@
       ],
       "category": {
         "id": 5,
-        "name": "Hoodies"
+        "name": "Hoodies",
+        "type": "men"
       }
     },
     {
@@ -235,7 +293,8 @@
       ],
       "category": {
         "id": 5,
-        "name": "Hoodies"
+        "name": "Hoodies",
+        "type": "men"
       }
     },
     {
@@ -249,7 +308,8 @@
       ],
       "category": {
         "id": 5,
-        "name": "t-shirts"
+        "name": "t-shirts",
+        "type": "men"
       }
     }
   ]

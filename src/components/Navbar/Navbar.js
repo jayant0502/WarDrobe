@@ -5,112 +5,49 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
 import "../Navbar/Navbar.css";
 import { Link } from "react-router-dom";
 import { Person2Outlined, ShoppingBag } from "@mui/icons-material";
+import { useState, useEffect } from "react";
+import { Button } from "@mui/material";
 
-export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+ const Navbar=({ secondaryNav,setNavCategory})=> {
+  const [userPresent, setUserPresent] = useState(false);
 
-  const isMenuOpen = Boolean(anchorEl);
-  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const cartLength= sessionStorage.getItem("cartlength")
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const totalBillAmt=sessionStorage.getItem("TotalAmount")
+
+  useEffect(() => {
+    const isUserLoggedIn = sessionStorage.getItem("userName");
+    if (isUserLoggedIn) {
+      
+      setUserPresent(true);
+    } else {
+     
+      setUserPresent(false);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.clear(); 
+    window.location.href='/'
   };
 
-  // const handleMobileMenuClose = () => {
-  //   setMobileMoreAnchorEl(null);
-  // };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    // handleMobileMenuClose();
+  const handleCategoryClick = (category) => {
+    try {
+      setNavCategory(category);
+    } catch (error) {
+      console.error("Error setting category:", error);
+    }
   };
-
-  // const handleMobileMenuOpen = (event) => {
-  //   setMobileMoreAnchorEl(event.currentTarget);
-  // };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    ></Menu>
-  );
-
-  // const mobileMenuId = "primary-search-account-menu-mobile";
-  // const renderMobileMenu = (
-  //   <Menu
-
-  //     id={mobileMenuId}
-  //     keepMounted
-  //     transformOrigin={{
-  //       vertical: "top",
-  //       horizontal: "right",
-  //     }}
-
-  //   >
-  {
-    /* <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem> */
-  }
-  {
-    /* <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem> */
-  }
-  {
-    /* <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem> */
-  }
-  //   </Menu>
-  // );
+  
 
   return (
-    <Box className="header" sx={{ flexGrow: 1 }} >
-      <AppBar className={`${secondaryNav ? "second-nav":"primary-nav"}`} id="nav" >
+    <Box className="header" sx={{ flexGrow: 1 }}>
+      <AppBar className={`${secondaryNav ? "second-nav" : "primary-nav"}`} id="nav">
         <Toolbar>
           <Typography
             variant="h6"
@@ -119,26 +56,34 @@ export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
             sx={{ display: { xs: "block", sm: "block" } }}
           >
             <Link to="/">
-              <img src={logo} className="logo"></img>
+              <img src={logo} className="logo" alt="Logo" />
             </Link>
           </Typography>
 
+          
           <Box sx={{ flexGrow: 1 }}>
-            <ul className={`${secondaryNav ? "second-nav-list":"primary-nav-list"}`}>
-              <li>
-                <Link to="/Categories" onClick={()=> setcategories("")}>Everything</Link>
-              </li>
-              <li>
-                <Link to="/Categories" onClick={()=> setcategories("women")}>Women</Link>
-              </li>
-              <li>
-                <Link to="/Categories" onClick={()=> setcategories("men")}>Men</Link>
-              </li>
-              <li>
-                <Link to="/Categories" onClick={()=>setcategories("accessories")}>Accessories</Link>
-              </li>
-            </ul>
-          </Box>
+  <ul className={`${secondaryNav ? "second-nav-list" : "primary-nav-list"}`}>
+    <li>
+      <Link to="/Categories/everything" onClick={() => handleCategoryClick("")}>Everything</Link> 
+       {/* onClick={() => handleCategoryClick("")}>Everything</Link> */}
+    </li>
+    <li>
+      <Link to="/Categories/women" onClick={() => handleCategoryClick("women")}>women</Link> 
+       {/* onClick={() => handleCategoryClick("women")}>Women</Link> */}
+    </li>
+    <li>
+      <Link to="/Categories/men" onClick={() => handleCategoryClick("men")}>Men</Link> 
+       {/* onClick={() => handleCategoryClick("men")}>Men</Link> */}
+    </li>
+    <li>
+      <Link to="/Categories/accessories" onClick={() => handleCategoryClick("accessories")}>
+      {/* onClick={() => handleCategoryClick("accessories")}> */}
+      Accessories</Link>
+    </li>
+  </ul>
+</Box>
+
+
           <Box
             sx={{
               display: {
@@ -148,7 +93,7 @@ export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
               },
             }}
           >
-            <ul className={`${secondaryNav ? "second-nav-list2":"primary-nav-list2"}`}>
+            <ul className={`${secondaryNav ? "second-nav-list2" : "primary-nav-list2"}`}>
               <li>
                 <Link to="/About">About</Link>
               </li>
@@ -162,8 +107,8 @@ export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
               color="inherit"
             >
               <Typography variant="h6" component={"bdi"}>
-                <span>$</span>
-                0.00
+                <span>₹</span>
+                {totalBillAmt?totalBillAmt:"0.00"}
               </Typography>
             </IconButton>
             <Link to="/Cart">
@@ -172,22 +117,26 @@ export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
                 aria-label="show 17 new notifications"
                 color="inherit"
               >
-                <Badge badgeContent={1} color="error">
-                  <ShoppingBag />
+                <Badge badgeContent={cartLength} color="error">
+                  <ShoppingBag className={`${secondaryNav ? "blackIcon" : "whiteIcon"}`} />
                 </Badge>
               </IconButton>
             </Link>
-            <Link to="/Profile">
+            <Link to={userPresent ? '' : '/Profile'}>
               <IconButton
                 size="large"
                 edge="end"
-                aria-label="account of current user"
-                // aria-controls={menuId}
-                // aria-haspopup="true"
-                // onClick={handleProfileMenuOpen}
+                aria-label={userPresent ? "Logout" : "Login/Profile"}
                 color="inherit"
+                
               >
-                <Person2Outlined>Profile</Person2Outlined>
+                {userPresent ? (
+                  <Button onClick={userPresent ? handleLogout : undefined} className={`${secondaryNav ? "blackIcon" : "whiteIcon"}`}>logout</Button>
+                ) : (
+                  <Person2Outlined className={`${secondaryNav ? "blackIcon" : "whiteIcons"}`}>
+                    Profile
+                  </Person2Outlined>
+                )}
               </IconButton>
             </Link>
             <IconButton
@@ -200,12 +149,9 @@ export default function PrimarySearchAppBar( {secondaryNav,setcategories}) {
               <MenuIcon />
             </IconButton>
           </Box>
-          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
-          </Box> */}
         </Toolbar>
       </AppBar>
-      {/* {renderMobileMenu} */}
-      {renderMenu}
     </Box>
   );
 }
+export default Navbar;

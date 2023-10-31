@@ -32,6 +32,7 @@
   margin-right: 2%;
   padding: 0 1rem 0 1rem;
   white-space: nowrap;
+ 
   
 }
 
@@ -64,6 +65,21 @@ a:-webkit-any-link ,.second-nav-list a:-webkit-any-link{
   display: -webkit-flex;
   
 }
+.whiteIcon{
+  color: white !important;
+}
+.blackIcon{
+  color: #333333 !important;
+}
+
+.css-1nu33w1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
 /* @media screen and (max-width:960px) 
 {
 

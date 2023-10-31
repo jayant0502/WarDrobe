@@ -90,7 +90,7 @@ const Register = () => {
         console.log("Success", response);
         alert("Registered");
         if (response.status === 200) {
-          // Navigate to the home page if registered
+        
           navigate("/");
         } else {
           alert("Registration failed");
@@ -101,32 +101,26 @@ const Register = () => {
         alert("Error during registration");
       });
   };
-   const [matchingUser,setMatchingUser]=useState(false);
-  const loginUser = (formData) => {
 
+   const [matchingUser,setMatchingUser]=useState(false);
+
+   const loginUser = (formData) => {
     axios
       .get("http://localhost:8000/user")
       .then((response) => {
         const users = response.data;
-        console.log(response)
-        
-        users.find(
-          (user) =>{
-                    
-           if(user.email === formData.email && user.password === formData.password){
-             sessionStorage.setItem("id",user.id)
-             sessionStorage.setItem("userName",user.username)
-            sessionStorage.setItem("email",user.email)
-            setMatchingUser(true)
-           }
-          }
-        );
-            console.log(matchingUser)
+  
+        const matchingUser = users.find((user) => {
+          return user.email === formData.email && user.password === formData.password;
+        });
+  
         if (matchingUser) {
+          sessionStorage.setItem("id", matchingUser.id);
+          sessionStorage.setItem("userName", matchingUser.username);
+          sessionStorage.setItem("email", matchingUser.email);
           navigate("/");
-         
-        } 
-        else {         
+        } else {
+        
           alert("Invalid email or password. Please try again.");
         }
       })
@@ -135,6 +129,7 @@ const Register = () => {
         alert("Error during sign-in");
       });
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;

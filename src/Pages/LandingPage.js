@@ -11,9 +11,12 @@ import img1 from "../assets/landingPageImages/women-fashion-free-img.jpg";
 import img2 from "../assets/landingPageImages/men-fashion-free-img.jpg";
 import img3 from "../assets/landingPageImages/footwear-free-img.jpg";
 import ServiceSection from "./Sections/ServiceSection";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
-const LandingPage = ({products}) => {
- 
+
+const LandingPage = ({products ,cartData}) => {
+ const navigate =useNavigate()
   return (
     <div>
       <Navbar />
@@ -23,8 +26,13 @@ const LandingPage = ({products}) => {
           <div className="txt-container">
             <h1>Raining Offers For Hot Summer!</h1>
             <h6>25% Off On All Products</h6>
+            
+            <a href="#featuredProduct">
             <BtnContained title={"Shop Now"} className="button" />
-            <BtnOutlined title={"Find More"} />
+            </a>
+            <Link to={"Categories/everything"}>
+            <BtnOutlined title={"Find More"}/>
+            </Link>
           </div>
         </div>
       </section>
@@ -59,9 +67,12 @@ const LandingPage = ({products}) => {
         </div>
       </section>
       {/* =================  Products card ============  */}
-      <ProductSection products={products}></ProductSection>
+      <section id="featuredProduct">
+      <ProductSection cartData={cartData} Products={products}></ProductSection>
 
-      <section className="middle-view">
+      </section>
+            
+      <section className="middle-view" >
         <div className="middle-bg-img">
           <div className="overlay"></div>
           <div className="mid-txt-container">

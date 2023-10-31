@@ -5,27 +5,28 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { Rating } from "@mui/material";
+import "../cards/ProductCard.css"
 import axios from "axios";
-import "../cards/ProductCard.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-export default function ProductCard({
+
+
+export default function FeaturedCard({
   products,
-  itemToBeSearch,
-  cartItems
-}) {
-   
+  cartData
+ }) {
+
   const navigate=useNavigate()
 
-  const addToCart=(item)=> {
 
+  const addToCart=(item)=> {
     let userId = sessionStorage.getItem("id");
     if (userId) {
       item["userId"] = userId;
       item["quantity"] = 1; 
 
 
-      const isProductInCart = cartItems.some((product) => item.pid === product.pid);
+      const isProductInCart = cartData.some((product) => item.pid === product.pid);
 
         if(isProductInCart){
           alert("Product Already Exists in Your Cart")
@@ -49,31 +50,21 @@ export default function ProductCard({
       window.location.href = "/Profile";
     }
   }
+
   
-  let filterItems;
-  try {
-    filterItems = products.filter(
-      (items) =>
-        items.category.name
-          .toLowerCase()
-          .includes(itemToBeSearch.toLowerCase()) ||
-        items.title.toLowerCase().includes(itemToBeSearch)
-    );
-  } catch (error) {
-    console.log(error);
-  }
-   function handleProductPreview(id){
+  const limitedProducts = products.slice(0, 8);
+
+  function handleProductPreview(id){
     // console.log("pid"+id)
     navigate(`/ProductDescriptionPage/${id}`)
     // console.log("clicked")
    }
-
   return (
     <div className="card-container">
-      {filterItems &&
-        filterItems.map((item, index) => {
+      {limitedProducts &&
+        limitedProducts.map((item, index) => {
           return (
-            <Card key={index} variant="plain" className="card"  >
+            <Card key={index} variant="plain" className="card">
               <AspectRatio minHeight="100%" className="img-wrapper" onClick={()=>handleProductPreview(item.pid)}>
                 <img
                   id="img"
@@ -81,7 +72,6 @@ export default function ProductCard({
                   key={index}
                   loading="lazy"
                   alt="Products"
-                  
                 />
               </AspectRatio>
 

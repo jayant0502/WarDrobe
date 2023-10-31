@@ -1,0 +1,11 @@
+.contact-bg-img{
+    background-image: url("../assets/contactus-banner-06.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

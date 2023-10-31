@@ -9,3 +9,17 @@
     color: black;
     text-align: start;
 }
+.item-count{
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+}
+.link{
+    display: flex;
+}
+.css-ahj2mt-MuiTypography-root {
+    
+    font-weight: 400;
+    font-size: 0.9rem !important;
+   
+}
