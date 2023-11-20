@@ -16,7 +16,7 @@ const QtyControl = ({cartItem , onQuantityChange }) => {
         setVal(updatedQuantity)
        
         onQuantityChange(qty);
-        console.log('New quantity:', updatedQuantity); 
+        
         
       }
       function decrement(){
@@ -27,7 +27,7 @@ const QtyControl = ({cartItem , onQuantityChange }) => {
           // const updatedCartItem = { ...cartItem, quantity: updatedQuantity };
           // updateCartItem(updatedCartItem)
           onQuantityChange(qty);
-          console.log('New quantity:', updatedQuantity); 
+          // console.log('New quantity:', updatedQuantity); 
           
         }
         

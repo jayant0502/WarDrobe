@@ -47,7 +47,7 @@ export default function FeaturedCard({
               
     }
     else {
-      window.location.href = "/Profile";
+      window.location.href = "/Login";
     }
   }
 

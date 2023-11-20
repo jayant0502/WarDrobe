@@ -1,0 +1,18 @@
+.AccountSetting{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center ;
+}
+.AccountSetting h1{
+    font-family: var(--fontFamily);
+    font-weight: 300;
+
+}
+.submit-btn{
+    padding: 10px 15px 10px 15px;
+    width: 40% !important;
+    border-radius: 0 !important;
+    font-size: 1rem;
+
+}

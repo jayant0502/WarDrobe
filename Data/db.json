@@ -1,55 +1,54 @@
 {
   "user": [
     {
-      "username": "jayant80",
+      "username": "Jayant",
       "email": "pawarjayant80@gmail.com",
       "password": "123",
       "id": 1
     },
     {
-      "username": "jayant",
-      "email": "pawar@gmail.com",
+      "username": "mona",
+      "email": "mona@gmail.com",
       "password": "123",
-      "id": 2
+      "id": 3
     },
     {
       "username": "jay",
       "email": "jay@gmail.com",
       "password": "123",
-      "id": 3
-    },
-    {
-      "username": "mona",
-      "email": "monpatidar001@gmail.com",
-      "password": "123",
       "id": 4
     },
     {
-      "username": "ram",
-      "email": "ram@gmail.com",
+      "username": "mahesh",
+      "email": "mahesh@gmail.com",
       "password": "123",
       "id": 5
     }
   ],
-  "Cart": [
+  "profile": [
     {
-      "pid": 5,
-      "title": "Gray Denim Jeans",
-      "gender": "women",
-      "price": 2499,
-      "description": "5-pocket jeans in rigid cotton denim that feels firm at first but then softens and loosens with wear. Wide leg with a regular fit from the waist to the hip and a straight, wide cut from the thigh to the hem. Regular waist with a zip fly and button. Regular length, designed to hit the top of the foot with little or no stacking. A denim statement that goes the distance.",
-      "images": [
-        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-w-jeans4-600x600.jpg"
-      ],
-      "category": {
-        "id": 2,
-        "name": "jeans",
-        "type": "women"
-      },
-      "userId": "3",
-      "quantity": 1,
-      "id": 2
+      "firstName": "Jayant",
+      "lastName": "Pawar",
+      "email": "pawarjayant80@gmail.com",
+      "phoneNumber": "09340710720",
+      "id": "4"
     },
+    {
+      "firstName": "mona ",
+      "lastName": "patidar",
+      "email": "mona@gmail.com",
+      "phoneNumber": "8718878778",
+      "id": "3"
+    },
+    {
+      "firstName": "guru",
+      "lastName": "nath",
+      "email": "guru@gamil.com",
+      "phoneNumber": "62621762",
+      "id": "5"
+    }
+  ],
+  "Cart": [
     {
       "pid": 1,
       "title": "Levi's Black Shorts",
@@ -65,8 +64,44 @@
         "name": "shorts",
         "type": "women"
       },
+      "userId": "1",
+      "quantity": 1,
+      "id": 1
+    },
+    {
+      "pid": 7,
+      "title": "Anchor Bracelet",
+      "gender": "women",
+      "price": 1099,
+      "description": "Silver Bracelet for women ",
+      "images": [
+        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-accessory2-600x600.jpg"
+      ],
+      "category": {
+        "id": 4,
+        "name": "Bracelet",
+        "type": "accessories"
+      },
       "userId": "3",
-      "quantity": 4,
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "pid": 6,
+      "title": "Blue Denim Shorts",
+      "gender": "women",
+      "price": 1499,
+      "description": "4-pocket shorts in rigid cotton denim that feels firm at first but then softens and loosens with wear. Wide leg with a regular fit from the waist to the hip and a straight, wide cut from the thigh to the hem. Regular waist with a zip fly and button. Regular length, designed to hit the top of the foot with little or no stacking. A denim statement that goes the distance.",
+      "images": [
+        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-w-jeans1-600x600.jpg"
+      ],
+      "category": {
+        "id": 1,
+        "name": "shorts",
+        "type": "women"
+      },
+      "userId": "5",
+      "quantity": 1,
       "id": 3
     }
   ],
@@ -115,6 +150,21 @@
         "id": 3,
         "name": "shoes",
         "type": "men"
+      }
+    },
+    {
+      "pid": 20,
+      "title": "Canvas Lace-Up Sneakers",
+      "gender": "women",
+      "price": 4299,
+      "description": "A pair of round toe white sneakers ,has regular styling,Lace-ups detail,Canvas upper,Cushioned footbed,Textured and patterned outsole",
+      "images": [
+        "https://assets.myntassets.com/v1/assets/images/25062046/2023/9/21/863f8fa3-cc98-4b69-af9c-481ab8e87c991695282964505ConverseUnisexWhiteSneakers1.jpg"
+      ],
+      "category": {
+        "id": 3,
+        "name": "shoes",
+        "type": "women"
       }
     },
     {
@@ -203,7 +253,7 @@
       ],
       "category": {
         "id": 4,
-        "name": "Purse",
+        "name": "bag",
         "type": "accessories"
       }
     },
@@ -218,8 +268,23 @@
       ],
       "category": {
         "id": 4,
-        "name": "Purse",
+        "name": "bag",
         "type": "accessories"
+      }
+    },
+    {
+      "pid": 19,
+      "title": "Puma Shoes",
+      "gender": "women",
+      "price": 3499,
+      "description": "women-specific and court-inspired, the Courtflex V2 Trainers are made to be worn every day. Featuring a wide instep for easy on and off, plus an increased width and height in the toe area, these kicks will quickly become all-time faves.",
+      "images": [
+        "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/16344224/2022/3/29/b137462d-d41a-4ede-8ac4-d566131251331648542142974-Puma-Unisex-Kids-Casual-Shoes-2281648542142673-1.jpg"
+      ],
+      "category": {
+        "id": 3,
+        "name": "shoes",
+        "type": "women"
       }
     },
     {
@@ -310,6 +375,36 @@
         "id": 5,
         "name": "t-shirts",
         "type": "men"
+      }
+    },
+    {
+      "pid": 17,
+      "title": "Black Over-the-shoulder Handbag",
+      "gender": "women",
+      "price": 2999,
+      "description": "Shoulder bag with an adjustable shoulder strap and a zip at the top. Decorative metal buckles at the front and back and, a zipped inner compartment. Lined.",
+      "images": [
+        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-bag2.jpg"
+      ],
+      "category": {
+        "id": 4,
+        "name": "bag",
+        "type": "accessories"
+      }
+    },
+    {
+      "pid": 18,
+      "title": "Bright Gold Purse With Chain",
+      "gender": "women",
+      "price": 4999,
+      "description": "Shoulder bag with an adjustable shoulder strap and a zip at the top. Decorative metal buckles at the front and back and, a zipped inner compartment. Lined.",
+      "images": [
+        "https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-bag4.jpg"
+      ],
+      "category": {
+        "id": 4,
+        "name": "bag",
+        "type": "accessories"
       }
     }
   ]

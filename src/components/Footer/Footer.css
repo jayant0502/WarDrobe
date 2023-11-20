@@ -6,11 +6,15 @@
     margin: 3rem 0 5rem 0;
     
 }
+.footer-list{
+    color: #00000082;
+}
 footer{
     margin: 0 0.5rem 0 0.5rem;
     flex: 1;
     align-content: center;
     position: relative;
+    font-family: var(--fontFamiy);
 }
 .input-container{
     display: flex;
@@ -28,12 +32,19 @@ footer{
 .footer-end{
     display: flex;
     justify-content: space-between;
+    margin: 0 1rem 0 1rem;
+   
 }
 .footer-end ul{
     display: flex;
     list-style: none;
     justify-content: space-around;
     width: 10%;
+}
+.footer-end h3{
+    font-weight: 300;
+    color: #333333 !important;
+
 }
 #logo{
     width: 20em;
@@ -48,6 +59,15 @@ hr{
     border-width: 0px;
     border-top-width: 2px;
     border-top-color: #dddd
+}
+
+.footer-top , .input-container h2{
+    font-weight: 400;
+}
+.left-items h4{
+    font-size: 1.5rem;
+    font-weight: 400;
+
 }
 
 @media screen and (max-width:760px) {

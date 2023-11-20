@@ -46,7 +46,7 @@ export default function ProductCard({
               
     }
     else {
-      window.location.href = "/Profile";
+      window.location.href = "/Login";
     }
   }
   
@@ -63,10 +63,11 @@ export default function ProductCard({
     console.log(error);
   }
    function handleProductPreview(id){
-    // console.log("pid"+id)
+
     navigate(`/ProductDescriptionPage/${id}`)
-    // console.log("clicked")
+    
    }
+
 
   return (
     <div className="card-container">

@@ -33,7 +33,7 @@ const ProductDescriptionPage = ({ cartItems1}) => {
           `http://localhost:8000/products?pid=${id}`
         );
         setPreview(response.data);
-        
+        setQuantity(1)
         setLoading(false);
       } catch (error) {
         console.log("Error while Fetching data", error);
@@ -41,13 +41,13 @@ const ProductDescriptionPage = ({ cartItems1}) => {
       }
     };
     fetchData();
-  },[preview]);
+  },[id]);
   
   
   
   
   const addToCart = (item) => {
-    console.log("cart "+item)
+   
     let userId = sessionStorage.getItem("id");
     if (userId) {
       item["userId"] = userId;
@@ -71,7 +71,7 @@ const ProductDescriptionPage = ({ cartItems1}) => {
           
         }
     } else {
-      window.location.href = "/Profile";
+      window.location.href = "/Login";
     }
   };
 

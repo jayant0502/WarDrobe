@@ -88,10 +88,11 @@ const Register = () => {
       .post(`http://localhost:8000/user`, formData)
       .then((response) => {
         console.log("Success", response);
-        alert("Registered");
-        if (response.status === 200) {
-        
-          navigate("/");
+        if (response) {
+          
+          alert("Your Successfully Registered");
+          toggleForm()
+          
         } else {
           alert("Registration failed");
         }
@@ -102,7 +103,7 @@ const Register = () => {
       });
   };
 
-   const [matchingUser,setMatchingUser]=useState(false);
+  //  const [matchingUser,setMatchingUser]=useState(false);
 
    const loginUser = (formData) => {
     axios
@@ -122,6 +123,7 @@ const Register = () => {
         } else {
         
           alert("Invalid email or password. Please try again.");
+
         }
       })
       .catch((error) => {

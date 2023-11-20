@@ -4,7 +4,7 @@ import "../Sections/css/Store.css";
 
 import FilterSection from "./FilterSection";
 
-const Store = ({ items, setcategory, categoryCount, category ,cartData ,setFilteredProducts}) => {
+const Store = ({ items, setcategory, categoryCount, category ,cartData ,setFilteredProducts ,setSelectedValue1}) => {
 
   const[dataFromSearch,setDataFromSearch]=useState('')
 
@@ -19,6 +19,7 @@ const Store = ({ items, setcategory, categoryCount, category ,cartData ,setFilte
           categoryCount2={categoryCount}
           searchData={setDataFromSearch}
           setFilteredProducts={setFilteredProducts}
+          setSelectedValue1={setSelectedValue1}
           products={items}
          
         />

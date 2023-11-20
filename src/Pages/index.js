@@ -4,3 +4,6 @@ export { default as AboutPage } from "./AboutPage";
 export { default as ContactUs } from "./ContactUs";
 export { default as Profile } from "./Profile";
 export { default as Cart } from "./Cart";
+export { default as ProductDescriptionPage } from "./ProductDescriptionPage";
+export { default as CheckOut } from "./CheckOut";
+export { default as LoginPage } from "./LoginPage";

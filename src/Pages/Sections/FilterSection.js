@@ -3,7 +3,7 @@ import "../Sections/css/FilterSection.css";
 import SideCategory from "../../components/Category/SideCategory";
 import Filter from "../../components/FilterArea/FilterBy/Filter";
 
-const FilterSection = ({ setFilterCat, categoryCount2, searchData ,setFilteredProducts ,products}) => {
+const FilterSection = ({ setFilterCat, categoryCount2, searchData ,setFilteredProducts ,products ,setSelectedValue1}) => {
   
   const [searchItem, setSearchItem] = useState("");
 
@@ -30,7 +30,7 @@ const FilterSection = ({ setFilterCat, categoryCount2, searchData ,setFilteredPr
           setcatg={setFilterCat}
           categoryCount3={categoryCount2}
         ></SideCategory>
-        {/* <Filter setFilteredProducts={setFilteredProducts} products={products}></Filter> */}
+        <Filter setFilteredProducts={setFilteredProducts} setSelectedValue1={setSelectedValue1} products={products}></Filter>
       </div>
     </div>
   );

@@ -11,29 +11,27 @@ import "../Navbar/Navbar.css";
 import { Link } from "react-router-dom";
 import { Person2Outlined, ShoppingBag } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-import { Button } from "@mui/material";
 
- const Navbar=({ secondaryNav,setNavCategory})=> {
+
+const Navbar = ({ secondaryNav, setNavCategory }) => {
   const [userPresent, setUserPresent] = useState(false);
 
-  const cartLength= sessionStorage.getItem("cartlength")
+  const cartLength = sessionStorage.getItem("cartlength");
 
-  const totalBillAmt=sessionStorage.getItem("TotalAmount")
+  const totalBillAmt = sessionStorage.getItem("TotalAmount");
 
   useEffect(() => {
     const isUserLoggedIn = sessionStorage.getItem("userName");
     if (isUserLoggedIn) {
-      
       setUserPresent(true);
     } else {
-     
       setUserPresent(false);
     }
   }, []);
 
   const handleLogout = () => {
-    sessionStorage.clear(); 
-    window.location.href='/'
+    sessionStorage.clear();
+    window.location.href = "/";
   };
 
   const handleCategoryClick = (category) => {
@@ -43,11 +41,13 @@ import { Button } from "@mui/material";
       console.error("Error setting category:", error);
     }
   };
-  
 
   return (
     <Box className="header" sx={{ flexGrow: 1 }}>
-      <AppBar className={`${secondaryNav ? "second-nav" : "primary-nav"}`} id="nav">
+      <AppBar
+        className={`${secondaryNav ? "second-nav" : "primary-nav"}`}
+        id="nav"
+      >
         <Toolbar>
           <Typography
             variant="h6"
@@ -60,29 +60,50 @@ import { Button } from "@mui/material";
             </Link>
           </Typography>
 
-          
           <Box sx={{ flexGrow: 1 }}>
-  <ul className={`${secondaryNav ? "second-nav-list" : "primary-nav-list"}`}>
-    <li>
-      <Link to="/Categories/everything" onClick={() => handleCategoryClick("")}>Everything</Link> 
-       {/* onClick={() => handleCategoryClick("")}>Everything</Link> */}
-    </li>
-    <li>
-      <Link to="/Categories/women" onClick={() => handleCategoryClick("women")}>women</Link> 
-       {/* onClick={() => handleCategoryClick("women")}>Women</Link> */}
-    </li>
-    <li>
-      <Link to="/Categories/men" onClick={() => handleCategoryClick("men")}>Men</Link> 
-       {/* onClick={() => handleCategoryClick("men")}>Men</Link> */}
-    </li>
-    <li>
-      <Link to="/Categories/accessories" onClick={() => handleCategoryClick("accessories")}>
-      {/* onClick={() => handleCategoryClick("accessories")}> */}
-      Accessories</Link>
-    </li>
-  </ul>
-</Box>
-
+            <ul
+              className={`${
+                secondaryNav ? "second-nav-list" : "primary-nav-list"
+              }`}
+            >
+              <li>
+                <Link
+                  to="/Categories/everything"
+                  onClick={() => handleCategoryClick("")}
+                >
+                  Everything
+                </Link>
+                {/* onClick={() => handleCategoryClick("")}>Everything</Link> */}
+              </li>
+              <li>
+                <Link
+                  to="/Categories/women"
+                  onClick={() => handleCategoryClick("women")}
+                >
+                  women
+                </Link>
+                {/* onClick={() => handleCategoryClick("women")}>Women</Link> */}
+              </li>
+              <li>
+                <Link
+                  to="/Categories/men"
+                  onClick={() => handleCategoryClick("men")}
+                >
+                  Men
+                </Link>
+                {/* onClick={() => handleCategoryClick("men")}>Men</Link> */}
+              </li>
+              <li>
+                <Link
+                  to="/Categories/accessories"
+                  onClick={() => handleCategoryClick("accessories")}
+                >
+                  {/* onClick={() => handleCategoryClick("accessories")}> */}
+                  Accessories
+                </Link>
+              </li>
+            </ul>
+          </Box>
 
           <Box
             sx={{
@@ -93,7 +114,11 @@ import { Button } from "@mui/material";
               },
             }}
           >
-            <ul className={`${secondaryNav ? "second-nav-list2" : "primary-nav-list2"}`}>
+            <ul
+              className={`${
+                secondaryNav ? "second-nav-list2" : "primary-nav-list2"
+              }`}
+            >
               <li>
                 <Link to="/About">About</Link>
               </li>
@@ -107,8 +132,9 @@ import { Button } from "@mui/material";
               color="inherit"
             >
               <Typography variant="h6" component={"bdi"}>
-                <span>₹</span>
-                {totalBillAmt?totalBillAmt:"0.00"}
+                <span className="amount">
+                  ₹ {totalBillAmt ? totalBillAmt : "0.00"}
+                </span>
               </Typography>
             </IconButton>
             <Link to="/Cart">
@@ -118,27 +144,46 @@ import { Button } from "@mui/material";
                 color="inherit"
               >
                 <Badge badgeContent={cartLength} color="error">
-                  <ShoppingBag className={`${secondaryNav ? "blackIcon" : "whiteIcon"}`} />
+                  <ShoppingBag
+                    className={`${secondaryNav ? "blackIcon" : "whiteIcon"}`}
+                  />
                 </Badge>
               </IconButton>
             </Link>
-            <Link to={userPresent ? '' : '/Profile'}>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label={userPresent ? "Logout" : "Login/Profile"}
-                color="inherit"
-                
-              >
-                {userPresent ? (
-                  <Button onClick={userPresent ? handleLogout : undefined} className={`${secondaryNav ? "blackIcon" : "whiteIcon"}`}>logout</Button>
-                ) : (
-                  <Person2Outlined className={`${secondaryNav ? "blackIcon" : "whiteIcons"}`}>
-                    Profile
-                  </Person2Outlined>
-                )}
-              </IconButton>
-            </Link>
+            <Link to={userPresent ? "" : "/Login"} className="iconBtn">
+            <div className="dropdown">
+             
+              {userPresent ? (
+                <>
+
+
+                <div className="dropdown-option">
+                <Link to="/Profile/accountsettings" className="txt">My Profile</Link>
+              </div>
+                <div className="dropdown-option" onClick={handleLogout}>
+                  Logout
+                </div>
+
+                </>
+              ) : (
+                <div className="dropdown-option">
+                  <Link to="/Login" className="txt">Login</Link>
+                </div>
+              )}
+            </div>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label={userPresent ? "Logout" : "Login/Profile"}
+              color="inherit"
+              className="userIcon"
+            >
+              <Person2Outlined className={`${secondaryNav ? "blackIcon" : "whiteIcons"}`} id="userIcon">
+                Profile
+              </Person2Outlined>
+            </IconButton>
+          </Link>
+
             <IconButton
               size="large"
               edge="start"
@@ -153,5 +198,5 @@ import { Button } from "@mui/material";
       </AppBar>
     </Box>
   );
-}
+};
 export default Navbar;

@@ -5,10 +5,10 @@ import Store from "./Sections/Store";
 import {  useParams } from "react-router";
 
 
-const AccessoriesPage = ({ products ,cartItems}) => {
+const AccessoriesPage = ({ products ,cartItems ,setSelectedValue1}) => {
 
   let {categoryName} = useParams('');
-
+ 
   const [categories, setcategories] = useState(categoryName);
   const [count, setCount] = useState({
     accessories: "",
@@ -17,13 +17,14 @@ const AccessoriesPage = ({ products ,cartItems}) => {
   });
   const [filteredProducts, setFilteredProducts] = useState([]);
 
- 
+
 
   useEffect(() => {
     if(categories === '' || categories === 'everything'){
 
-      
+
       setFilteredProducts(products)
+     
     }
     else{
 
@@ -35,6 +36,7 @@ const AccessoriesPage = ({ products ,cartItems}) => {
         setCount({
           [categories]: filtered.length,
         });
+      
   
         setFilteredProducts(filtered);
       } else {
@@ -49,7 +51,7 @@ const AccessoriesPage = ({ products ,cartItems}) => {
       }
     }
     
-  }, [products, categories]);
+  }, [categories ,categoryName ]);
 
   return (
     <div>
@@ -62,6 +64,7 @@ const AccessoriesPage = ({ products ,cartItems}) => {
           category={categoryName}
           cartData={cartItems}
           setFilteredProducts={setFilteredProducts}
+          setSelectedValue1={setSelectedValue1}
 
         ></Store>
       </div>

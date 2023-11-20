@@ -1,93 +1,138 @@
 .primary-nav {
-  max-height: 100px !important;
-  min-height: 100px !important;
-  /* display: flex; */
-  justify-content: center;
-  position: absolute !important;
-  /* position: relative; */
-  box-shadow: none !important;
-  background-color: rgba(0, 0, 0, 0.07) !important;
+	max-height: 100px !important;
+	min-height: 100px !important;
+	/* display: flex; */
+	justify-content: center;
+	position: absolute !important;
+	/* position: relative; */
+	box-shadow: none !important;
+	background-color: rgba(0, 0, 0, 0.07) !important;
 }
 .second-nav{
-  box-shadow: none !important;
+	box-shadow: none !important;
  
-  position: relative !important;
-  background-color: white !important;
-  color: black !important;
-  max-height: 100px !important;
-  min-height: 100px !important;
-  display: flex;
-  justify-content: center;
+	position: relative !important;
+	background-color: white !important;
+	color: black !important;
+	max-height: 100px !important;
+	min-height: 100px !important;
+	display: flex;
+	justify-content: center;
 }
 .primary-nav-list,
 .primary-nav-list2, .second-nav-list ,
 .second-nav-list2{
-  list-style: none;
-  display: flex;
-  align-items: center;
+	list-style: none;
+	display: flex;
+	align-items: center;
 }
 .primary-nav-list li,
 .primary-nav-list2 li ,.second-nav-list li,
 .second-nav-list2 li{
-  margin-right: 2%;
-  padding: 0 1rem 0 1rem;
-  white-space: nowrap;
+	margin-right: 2%;
+	padding: 0 1rem 0 1rem;
+	white-space: nowrap;
  
-  
+	
 }
 
 
 .logo {
-  width: 150px;
-  height: auto;
-  mix-blend-mode: difference;
+	width: 150px;
+	height: auto;
+	mix-blend-mode: difference;
 }
 a:-webkit-any-link ,.second-nav-list a:-webkit-any-link{
-  text-decoration: none;
-  color: white;
-  font-family: var(--fontFamily);
-  font-size: 0.899rem;
-  text-transform: uppercase;
-  font-weight: 500;
- 
+	text-decoration: none;
+	color: white;
+	font-family: var(--fontFamily);
+	font-size: 0.899rem;
+	text-transform: uppercase;
+	font-weight: 500;
+	
+}
+
+.amount{
+	
+	font-family: var(--fontFamily);
+	font-size: 0.999rem;
+	text-transform: uppercase;
+	font-weight: 500;
 }
 
 .second-nav-list a:-webkit-any-link,
 .second-nav-list2 a:-webkit-any-link{
-  color: black ;
+	color: black ;
 }
 
 .header{
-  display: flex;
-  position: relative;
+	display: flex;
+	position: relative;
 }
 .css-hyum1k-MuiToolbar-root{
-  display: -webkit-flex;
-  
+	display: -webkit-flex;
+	
 }
 .whiteIcon{
-  color: white !important;
+	color: white !important;
 }
 .blackIcon{
-  color: #333333 !important;
+	color: #333333 !important;
 }
 
 .css-1nu33w1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
 }
+.iconBtn{
+	position: relative;
+}
+/* Add this CSS to style the dropdown list */
+.dropdown {
+  position: absolute;
+  display: none;
+  right: 0;
+  top: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	
+  z-index: 1;
+	width: 200px;
+	
+}
+
+.iconBtn:hover .dropdown {
+  display: block;
+}
+
+.dropdown-option ,.txt{
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+	color: black !important;
+}
+
+.dropdown-option:hover ,.txt:hover{
+  background-color: #333333;
+	color: #fff !important;
+	
+}
+
+
+
+
 
 /* @media screen and (max-width:960px) 
 {
 
-  .css-hyum1k-MuiToolbar-root{
-    display: flex;
-    flex-direction: column;
-  }
-  .header{
-    flex-direction: column;
-  }
+	.css-hyum1k-MuiToolbar-root{
+		display: flex;
+		flex-direction: column;
+	}
+	.header{
+		flex-direction: column;
+	}
 } */

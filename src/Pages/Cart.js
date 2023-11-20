@@ -10,14 +10,18 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material/TableCell";
-import { Button, TableFooter } from "@mui/material";
+import { Button} from "@mui/material";
 import axios from "axios";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import QtyControl from "../components/QuantityController/QtyControl";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import { useNavigate } from "react-router";
+
 
 const Cart = ({setCartData}) => {
   const TAX_RATE = 0.07;
+
+  const navigate = useNavigate()
 
   function ccyFormat(num) {
     return `${num.toFixed(1)}`;
@@ -27,7 +31,7 @@ const Cart = ({setCartData}) => {
   const calculateSubtotal = (items) => {
     return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
-  // const rows = [];
+ 
   const [data, setData] = useState([]);
 
   const invoiceSubtotal = calculateSubtotal(data);
@@ -71,11 +75,11 @@ const Cart = ({setCartData}) => {
 
   function saveChange(x){
     
-    console.log(x)
+  
 
     let pid = "";
       x.map((i)=>{
-        console.log("item"+i.title)
+       
         pid=i.pid;
       })
       axios.put(`http://localhost:8000/Cart?userid=${sessionStorage.getItem("id")}&pid=${pid}/`, x)
@@ -120,13 +124,12 @@ const Cart = ({setCartData}) => {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
+  
     "&:last-child td, &:last-child th": {
       border: 0,
     },
   }));
 
-  // fetching whole data from specific user for cart
 
   return (
     <div
@@ -141,10 +144,10 @@ const Cart = ({setCartData}) => {
         <h1
           style={{
             fontFamily: "var(--fontFamiy)",
-            fontSize: "2.5rem",
+            fontSize: "3rem",
             color: "#54595f",
-            fontWeight: "500",
-            margin: "3rem 0 3rem 0",
+            fontWeight: "600",
+            margin: "0 0 3rem 0",
           }}
         >
           Cart
@@ -166,7 +169,7 @@ const Cart = ({setCartData}) => {
               <Table
                 sx={{
                   minWidth: 500,
-                  maxWidth: 800,
+                  maxWidth: 1000,
                   border: "1px solid #e2e2e2",
                 }}
                 aria-label="spanning table"
@@ -174,8 +177,8 @@ const Cart = ({setCartData}) => {
                 <TableHead>
                   <StyledTableRow>
                     <StyledTableCell>Product</StyledTableCell>
-                    <StyledTableCell align="right">Qty.</StyledTableCell>
-                    <StyledTableCell align="right">price</StyledTableCell>
+                    <StyledTableCell align="right">Quantity</StyledTableCell>
+                    <StyledTableCell align="right">Price</StyledTableCell>
                     <StyledTableCell align="right">Sum</StyledTableCell>
                   </StyledTableRow>
                 </TableHead>
@@ -206,16 +209,16 @@ const Cart = ({setCartData}) => {
                       <StyledTableCell align="right">
 
 
-                        {/* <QtyControl cartItem={row} onQuantityChange={(newQuantity) => handleQuantityChange(row.id, newQuantity)}/> */}
+                        
                         <QtyControl cartItem={row} onQuantityChange={(newQuantity) => handleQuantityChange(row.id, newQuantity)}/>
                       
                       
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        {row.price}
+                        {`₹ ${row.price}`}
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                        {ccyFormat(row.price * row.quantity)}
+                        {`₹ ${ccyFormat(row.price * row.quantity)}`}
                       </StyledTableCell>
                     </StyledTableRow>
                   ))}
@@ -224,12 +227,12 @@ const Cart = ({setCartData}) => {
                   
                           <StyledTableCell colSpan={7} sx={{ textAlign :"right"}}>
                           <Button
-                      // onClick={() => addToCart(preview)}
+                    
                       variant="contained"
                       className="btn"
                       sx={{
                         padding: "10px 15px 10px 15px",
-                        // width: "40%",
+                     
                         borderRadius: "0",
 
                         
@@ -264,18 +267,18 @@ const Cart = ({setCartData}) => {
                     <StyledTableCell >Subtotal</StyledTableCell>
                     <StyledTableCell ></StyledTableCell>
                     <StyledTableCell align="right">
-                      {ccyFormat(invoiceSubtotal)}
+                      {`₹ ${ccyFormat(invoiceSubtotal)}`}
                     </StyledTableCell>
                   </StyledTableRow>
 
                   <StyledTableRow >
                     <StyledTableCell >Tax</StyledTableCell>
-                    {/* <StyledTableCell rowSpan={2} /> */}
+                  
                     <StyledTableCell align="right" colSpan={1}>
                     {`${(TAX_RATE * 100).toFixed(0)} %`}
                     </StyledTableCell>
                     <StyledTableCell align="left">
-                    {ccyFormat(invoiceTaxes)}
+                    {`₹ ${ccyFormat(invoiceTaxes)}`}
                     </StyledTableCell>
                   </StyledTableRow>
 
@@ -283,13 +286,13 @@ const Cart = ({setCartData}) => {
                     <StyledTableCell >Total</StyledTableCell>
                     <StyledTableCell ></StyledTableCell>
                     <StyledTableCell align="right">
-                      {ccyFormat(invoiceTotal)}
+                      {`₹ ${ccyFormat(invoiceTotal)}`}
                     </StyledTableCell>
                   </StyledTableRow>
                  
                   <StyledTableCell colSpan={4}>
                     <Button
-                      // onClick={() => addToCart(preview)}
+                      onClick={()=>navigate('/CheckOut',{state:{ data:data , total :invoiceTotal}})}
                       variant="contained"
                       className="btn"
                       sx={{
@@ -301,13 +304,14 @@ const Cart = ({setCartData}) => {
                       }}
                     >
                       CheckOut
+                      
                     </Button>
                   </StyledTableCell>
-                  {/* <StyledTableRow></StyledTableRow> */}
+               
                 </TableBody>
               </Table>
             </TableContainer>
-            {/* ... */}
+       
           </>
         ) : (
           <div

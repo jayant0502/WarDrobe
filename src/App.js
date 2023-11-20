@@ -10,9 +10,12 @@ import {
   ContactUs,
   Profile,
   Cart,
+  ProductDescriptionPage,
+  CheckOut,
+  LoginPage
 } from "./Pages/index";
 import { Routes, Route, useLocation } from "react-router";
-import ProductDescriptionPage from "./Pages/ProductDescriptionPage";
+
 
 export function ScrollToTop(){
   const {pathname}=useLocation()
@@ -23,7 +26,7 @@ export function ScrollToTop(){
 
 function App() {
   const [products, setProducts] = useState([]);
-   
+ 
 
   useEffect(() => {
     const url = " http://localhost:8000/products";
@@ -60,9 +63,12 @@ function App() {
         <Route path="/Categories/:categoryName" element={<AccessoriesPage  products={products} cartItems={cartData} />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Contact_Us" element={<ContactUs />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/Cart" element={<Cart setCartData={setCartData}/>} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Profile/:activePage" element={<Profile />} />
+        <Route path="/Cart" element={<Cart setCartData={setCartData}/>} />        
+        <Route path="/CheckOut" element={<CheckOut setCartData={setCartData}/>} />        
         <Route path="/ProductDescriptionPage/:id" element={<ProductDescriptionPage cartItems1={cartData}/>}/>
+        <Route path="*" element={<div><h1>404 Page Not Found </h1></div>}></Route>
       </Routes>
      
     </div>
