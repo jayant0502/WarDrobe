@@ -5,25 +5,8 @@
       "email": "pawarjayant80@gmail.com",
       "password": "123",
       "id": 1
-    },
-    {
-      "username": "mona",
-      "email": "mona@gmail.com",
-      "password": "123",
-      "id": 3
-    },
-    {
-      "username": "jay",
-      "email": "jay@gmail.com",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "username": "mahesh",
-      "email": "mahesh@gmail.com",
-      "password": "123",
-      "id": 5
     }
+    
   ],
   "profile": [
     {
@@ -103,6 +86,25 @@
       "userId": "5",
       "quantity": 1,
       "id": 3
+    },
+    {
+      "pid": 1,
+      "title": "Levi's Black Shorts",
+      "gender": "women",
+      "price": 999,
+      "description": "Amp up your wardrobe with this pair of Levi's® Regular Fit Shorts. Tailored to sartorial perfection from premium quality fabric, it assures a soft and soothing touch against the skin. Join the league of fashion elites flaunting the staple.",
+      "images": [
+        "https://i.imgur.com/QEGACen.jpeg",
+        "src/assets/productsImage/women/product-w-shorts.jpeg"
+      ],
+      "category": {
+        "id": 1,
+        "name": "shorts",
+        "type": "women"
+      },
+      "userId": "4",
+      "quantity": 1,
+      "id": 4
     }
   ],
   "products": [

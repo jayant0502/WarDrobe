@@ -59,8 +59,8 @@ const Navbar = ({ secondaryNav, setNavCategory }) => {
               <img src={logo} className="logo" alt="Logo" />
             </Link>
           </Typography>
-
-          <Box sx={{ flexGrow: 1 }}>
+          
+          <Box sx={{ flexGrow: 1 }} className="list-wrap">
             <ul
               className={`${
                 secondaryNav ? "second-nav-list" : "primary-nav-list"
